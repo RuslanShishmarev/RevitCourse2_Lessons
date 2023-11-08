@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lesson1.Models
+﻿namespace Lesson1.Models
 {
     internal class MyPoint
     {
-        public double X { get; private set; }
+        public double X { get; }
 
-        public double Y { get; private set; }
+        public double Y { get; }
 
-        public double Z { get; private set; }
+        public double Z { get; }
 
         public MyPoint(double x, double y, double z = 0)
         {
@@ -60,13 +54,13 @@ namespace Lesson1.Models
             return !(point1 == point2);
         }
 
-        public void Normalize()
+        public MyPoint Normalize()
         {
             double maxXY = Math.Max(Math.Abs(this.X), Math.Abs(this.Y));
 
             double max = Math.Max(maxXY, Math.Abs(this.Z));
 
-            X /= max; Y /= max; Z /= max;
+            return this / max;
         }
 
         public override string ToString()
