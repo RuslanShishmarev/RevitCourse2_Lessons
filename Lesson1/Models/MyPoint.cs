@@ -71,10 +71,8 @@
 
         public override bool Equals(object? obj)
         {
-            if (obj != null && obj is MyPoint)
+            if (obj != null && obj is MyPoint objAsPoint)
             {
-                MyPoint objAsPoint = obj as MyPoint;
-
                 return objAsPoint.GetHashCode() == this.GetHashCode();
             }
             return base.Equals(obj);
