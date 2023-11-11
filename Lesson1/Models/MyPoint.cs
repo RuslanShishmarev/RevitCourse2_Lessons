@@ -82,5 +82,7 @@
         {
             return X.GetHashCode() + Y.GetHashCode() + Z.GetHashCode();
         }
+
+        public static MyPoint Zero => new MyPoint(0, 0, 0);
     }
 }

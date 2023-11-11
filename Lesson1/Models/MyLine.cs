@@ -1,19 +1,11 @@
 ﻿namespace Lesson1.Models
 {
-    internal class MyLine
+    internal class MyLine : MyCurve
     {
-        public MyPoint Start { get; }
-
-        public MyPoint End { get; }
-
         public MyPoint Vector { get; }
 
-        public double Length { get; }
-
-        private MyLine(MyPoint start, MyPoint end)
+        private MyLine(MyPoint start, MyPoint end) : base(start, end)
         {
-            Start = start;
-            End = end;
             Vector = GetVector();
             Length = GetLength();
         }
@@ -38,6 +30,15 @@
         public static MyLine Create(MyPoint start, MyPoint end)
         {
             return new MyLine(start, end);
+        }
+
+        public override MyCurve CreateOffset(MyPoint vector, double distance)
+        {
+            var newStart = Start + vector * distance;
+            var newEnd = End + vector * distance;
+
+            var newLine = new MyLine(newStart, newEnd);
+            return newLine;
         }
     }
 }
