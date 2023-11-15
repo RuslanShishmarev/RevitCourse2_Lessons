@@ -1,37 +1,37 @@
 ﻿namespace Lesson1.Models
 {
-    internal class MyWall : IMy3DElement, IMyElement
+    internal class MyWall : IMy3DElement
     {
         public int Id { get; }
 
-        public string Name { get; }
+        public string Name => WallType.Name;
 
         public MyCurve LocationCurve { get; }
 
         public double Height { get; set; }
 
-        public double Thickness => Materials.Sum(m => m.Thickness);
+        public double Length => LocationCurve.Length;
 
-        public List<MyLayMaterial> Materials { get; }
+        public MyWallType WallType { get; }
+
+        public double Thickness => WallType.Materials.Sum(m => m.Thickness);
 
         public MyWall(
             int id,
-            string name,
             MyCurve locationCurve,
             double height,
-            List<MyLayMaterial> materials)
+            MyWallType wallType)
         {
             Id = id;
-            Name = name;
             LocationCurve = locationCurve;
             Height = height;
-            Materials = materials;
+            WallType = wallType;
         }
 
         public double GetArea()
         {
-            var area1 = Height * LocationCurve.Length;
-            var area2 = LocationCurve.Length * Thickness;
+            var area1 = Height * Length;
+            var area2 = Length * Thickness;
             var area3 = Height * Thickness;
 
             return (area1 + area2 + area3) * 2;
@@ -39,7 +39,12 @@
 
         public double GetVolume()
         {
-            return Height * Thickness * LocationCurve.Length;
+            return Height * Thickness * Length;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name};\nВысота: {Height};\nТолщина: {Thickness};\nДлина: {Length};\nКол-во материалов: {WallType.Materials.Count}";
         }
     }
 }

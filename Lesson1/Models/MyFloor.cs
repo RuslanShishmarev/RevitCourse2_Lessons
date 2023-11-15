@@ -1,6 +1,6 @@
 ﻿namespace Lesson1.Models
 {
-    internal class MyFloor : IMy3DElement, IMyElement
+    internal class MyFloor : IMy3DElement
     {
         public int Id { get; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson1.Models
 {
-    internal interface IMy3DElement
+    internal interface IMy3DElement : IMyElement
     {
         double GetVolume();
 

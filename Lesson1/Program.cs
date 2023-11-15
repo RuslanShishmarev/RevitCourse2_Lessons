@@ -40,4 +40,57 @@ List<MyLayMaterial> myMaterials= new List<MyLayMaterial>();
 MyLayMaterial material1 = new MyLayMaterial(
     id: 1,
     name: "Железобетон",
-    thickness: 50);
+    thickness: 200);
+myMaterials.Add(material1);
+
+MyLayMaterial material2 = new MyLayMaterial(
+    id: 2,
+    name: "Термоплиты",
+    thickness: 150);
+myMaterials.Add(material2);
+
+MyLayMaterial material3 = new MyLayMaterial(
+    id: 3,
+    name: "Штукатурка",
+    thickness: 30);
+myMaterials.Add(material3);
+
+MyLayMaterial material4 = new MyLayMaterial(
+    id: 4,
+    name: "Кирпич фасадный",
+    thickness: 120);
+myMaterials.Add(material4);
+
+MyWallType wallType1 = new MyWallType(
+    id: 1,
+    name: "Стена наружная 500мм",
+    materials: myMaterials);
+
+MyPoint startWall = new MyPoint(1, 1, 0);
+
+MyPoint endWall = new MyPoint(50, 100, 0);
+
+MyLine wallLine = MyLine.Create(startWall, endWall);
+
+MyWall newWall = new MyWall(
+    id: 1,
+    locationCurve: wallLine,
+    height: 3000,
+    wallType: wallType1);
+
+Console.WriteLine("Создан элемент стены:\n" + newWall);
+
+
+Console.WriteLine("------------------------------");
+Console.WriteLine("Всего элементов в проекте:\n");
+
+SomeMethodWithElement(myMaterials.Concat(new IMyElement[2] { wallType1 , newWall }));
+
+
+void SomeMethodWithElement(IEnumerable<IMyElement> elements)
+{
+    foreach (var el in elements)
+    {
+        Console.WriteLine(el.Name);
+    }
+}
