@@ -33,3 +33,11 @@ List<MyCurve> GetNewOffsetForCurves(IEnumerable<MyCurve> curves, MyPoint vector,
 
     return result;
 }
+
+
+List<MyLayMaterial> myMaterials= new List<MyLayMaterial>();
+
+MyLayMaterial material1 = new MyLayMaterial(
+    id: 1,
+    name: "Железобетон",
+    thickness: 50);
