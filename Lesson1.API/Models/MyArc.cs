@@ -1,6 +1,6 @@
-﻿namespace Lesson1.Models
+﻿namespace Lesson1.API.Models
 {
-    internal class MyArc : MyCurve
+    public class MyArc : MyCurve
     {
         public MyPoint Center { get; }
 

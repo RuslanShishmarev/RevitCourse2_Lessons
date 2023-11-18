@@ -1,6 +1,6 @@
-﻿namespace Lesson1.Models
+﻿namespace Lesson1.API.Models
 {
-    internal abstract class MyCurve
+    public abstract class MyCurve
     {
         public MyPoint Start { get; }
 

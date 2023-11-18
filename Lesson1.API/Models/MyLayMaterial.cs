@@ -1,6 +1,6 @@
-﻿namespace Lesson1.Models
+﻿namespace Lesson1.API.Models
 {
-    internal class MyLayMaterial : IMyElement
+    public class MyLayMaterial : IMyElement
     {
         public int Id { get; }
 

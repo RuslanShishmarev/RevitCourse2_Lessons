@@ -1,6 +1,6 @@
-﻿namespace Lesson1.Models
+﻿namespace Lesson1.API.Models
 {
-    internal class MyWall : IMy3DElement
+    public class MyWall : IMy3DElement
     {
         public int Id { get; }
 

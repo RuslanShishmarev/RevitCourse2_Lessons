@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Lesson1.Models;
+using Lesson1.API.Models;
+using System.Reflection;
 
 MyPoint point3D = new MyPoint(5, 10, 15);
 

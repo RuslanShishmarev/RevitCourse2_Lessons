@@ -1,6 +1,6 @@
-﻿namespace Lesson1.Models
+﻿namespace Lesson1.API.Models
 {
-    internal interface IMyElement
+    public interface IMyElement
     {
         int Id { get; }
 

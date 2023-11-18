@@ -1,6 +1,6 @@
-﻿namespace Lesson1.Models
+﻿namespace Lesson1.API.Models
 {
-    internal class MyPoint
+    public class MyPoint
     {
         public double X { get; }
 

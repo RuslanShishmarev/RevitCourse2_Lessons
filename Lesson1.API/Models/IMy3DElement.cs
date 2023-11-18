@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lesson1.Models
+namespace Lesson1.API.Models
 {
-    internal interface IMy3DElement : IMyElement
+    public interface IMy3DElement : IMyElement
     {
         double GetVolume();
 
