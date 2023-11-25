@@ -22,23 +22,22 @@ namespace Lesson3_Revit
 
             var allRoomsByAppartNum_Linq = allRooms.GroupBy(x => x.get_Parameter(BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS).AsString());
 
-            var transact = new Transaction(doc, "Set appart area");
-            transact.Start();
-
-            foreach (var group in allRoomsByAppartNum_Linq)
+            using (var transact = new Transaction(doc, "Set appart area"))
             {
-                string appart = group.Key;
-                var areaSum = group.Sum(x => x.Area * Math.Pow(304.8 / 1000, 2));
-                var appartArea = Math.Round(areaSum, 2);
+                transact.Start();
+                foreach (var group in allRoomsByAppartNum_Linq)
+                {
+                    string appart = group.Key;
+                    var areaSum = group.Sum(x => x.Area * Math.Pow(304.8 / 1000, 2));
+                    var appartArea = Math.Round(areaSum, 2);
 
-                foreach (var room in group)
-                {                    
-                    room.LookupParameter(APPART_AREA).Set(appartArea);
+                    foreach (var room in group)
+                    {
+                        room.LookupParameter(APPART_AREA).Set(appartArea);
+                    }
                 }
+                transact.Commit();
             }
-
-            transact.Commit();
-            transact.Dispose();
 
             MessageBox.Show("Готово!");
             return Result.Succeeded;
