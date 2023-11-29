@@ -62,9 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegateExampleCommand.cs" />
+    <Compile Include="DocumentChangedCommand.cs" />
     <Compile Include="GetRoomInfoCommand.cs" />
     <Compile Include="GetWallsCommand.cs" />
     <Compile Include="HelloCommand.cs" />
+    <Compile Include="NameUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
