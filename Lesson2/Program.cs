@@ -6,7 +6,6 @@ var assemly = Assembly.LoadFrom("C:\\Users\\Admin\\Desktop\\Programming\\RevitCo
 
 foreach (Type innerType in assemly.GetTypes())
 {
-    innerType.GetAt
     if (innerType.IsClass && innerType.Name == "MyWall")
     {
         var wallTest = assemly.CreateInstance(
