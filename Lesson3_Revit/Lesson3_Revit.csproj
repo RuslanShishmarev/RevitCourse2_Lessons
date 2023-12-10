@@ -65,6 +65,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppWithButtons.cs" />
     <Compile Include="DelegateExampleCommand.cs" />
     <Compile Include="DocumentChangedCommand.cs" />
     <Compile Include="GetRoomInfoCommand.cs" />
